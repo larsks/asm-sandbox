@@ -1,8 +1,7 @@
-a_cr    = $0d       ; Carriage return.
-CHROUT  = $ffd2     ; C64 KERNEL ROM, output a character to current device.
+CHROUT  = $ffd2     ; C64 KERNAL ROM, output a character to current device.
 
 .code
-.include "bootstrap.s"
+.include "inc/bootstrap.s"
 
 main:
     ldx #0          ; Starting index 0 in X register.
@@ -15,7 +14,7 @@ printnext:
 done:
     rts             ; Return from subroutine.
  
-.data
+.rodata
 text:
     .asciiz "hello world!"
 
