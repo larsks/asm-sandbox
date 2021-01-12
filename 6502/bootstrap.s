@@ -14,3 +14,4 @@ bootstrap:
     :
     .word $0000     ; end of program
 
+; vim: set ft=asm_ca65 :

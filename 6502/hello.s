@@ -18,3 +18,5 @@ done:
 .data
 text:
     .asciiz "hello world!"
+
+; vim: set ft=asm_ca65 :
