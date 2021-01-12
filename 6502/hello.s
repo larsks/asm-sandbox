@@ -1,8 +1,10 @@
-; helloworld.s for C= 8-bit machines, 64tass assembler format.
-; String printing limited to strings of 256 characters or less.
+.segment "LOADADDR"
+.word $c000
 
-* = $c000
- 
+.segment "CODE"
+.org $c000
+.export __LOADADDR__ = *
+
 a_cr	= $0d		; Carriage return.
 bsout	= $ffd2		; C64 KERNEL ROM, output a character to current device.
 
@@ -18,4 +20,4 @@ done:
 	rts				; Return from subroutine.
  
 text:
-	.text	"Hello world!", a_cr, 0
+	.byte	"hello world!", a_cr, 0

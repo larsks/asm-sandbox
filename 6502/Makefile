@@ -1,10 +1,14 @@
-%.prg: %.s
-	64tass -a -o $@ $<
+%.bin: %.o
+	ld65 -t none -o $@ $<
 
-%.lst: %.prg
-	rasm2 -a 6502 -i2 -D -B -r -f $< -O $@
+%.prg: %.s
+	cl65 -t c64 -C c64-asm.cfg -l $(<:.s=.lst) -o $@ $<
+
+# %.o: %.s
+# 	ca65 -t c64 -o $@ -l $(@:.o=.lst) $<
+
 
 all: hello.prg
 
 clean:
-	rm -f *.prg
+	rm -f *.prg *.o
