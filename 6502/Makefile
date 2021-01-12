@@ -10,4 +10,4 @@
 all: hello.prg
 
 clean:
-	rm -f *.prg *.o
+	rm -f *.prg *.o *.lst
