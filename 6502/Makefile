@@ -1,12 +1,11 @@
-%.bin: %.o
-	ld65 -t none -o $@ $<
+%.prg: %.o
+	ld65 --lib c64.lib -C c64-asm.cfg -o $@ $<
 
-%.prg: %.s
-	cl65 -t c64 -C c64-asm.cfg -l $(<:.s=.lst) -o $@ $<
+#%.prg: %.s
+#	cl65 -t c64 -C c64-asm.cfg -l $(<:.s=.lst) -o $@ $<
 
-# %.o: %.s
-# 	ca65 -t c64 -o $@ -l $(@:.o=.lst) $<
-
+ %.o: %.s
+	ca65 -t c64 -o $@ -l $(@:.o=.lst) $<
 
 all: hello.prg
 
