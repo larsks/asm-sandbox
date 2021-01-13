@@ -114,14 +114,7 @@
                      //CPU in the Nintendo Entertainment System does not
                      //support BCD operation.
 
-#define FLAG_CARRY     0x01
-#define FLAG_ZERO      0x02
-#define FLAG_INTERRUPT 0x04
-#define FLAG_DECIMAL   0x08
-#define FLAG_BREAK     0x10
-#define FLAG_CONSTANT  0x20
-#define FLAG_OVERFLOW  0x40
-#define FLAG_SIGN      0x80
+#include "flags.h"
 
 #define BASE_STACK     0x100
 
@@ -843,7 +836,6 @@ static void tya() {
     #define sre nop
     #define rra nop
 #endif
-
 
 static void (*addrtable[256])() = {
 /*        |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  A  |  B  |  C  |  D  |  E  |  F  |     */
